@@ -18,5 +18,16 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        
+        //初期データ挿入
+        $this->call([
+            UserSeeder::class,
+            WorkSeeder::class,
+            PostSeeder::class,
+            PlaceSeeder::class,
+            ImageSeeder::class,
+            BookmarkSeeder::class,
+            CommentSeeder::class,
+            ]);
     }
 }
