@@ -5,9 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                    </a>
                 </div>
 
                 <!-- Navigation Links -->
@@ -26,9 +24,17 @@
                     <x-nav-link :href="route('index_work')" :active="request()->routeIs('index_work')">
                         {{ __('作品タグ一覧') }}
                     </x-nav-link>
-                    @if(Auth::check() ===true)
-                        <x-nav-link :href="route('mypage')" :active="request()->routeIs('mypage')">
-                            {{ __('マイページ') }}
+                    @if(Auth::check() === true)
+                        <x-nav-link :href="route('create_work')" :active="request()->routeIs('create_work')">
+                            {{ __('作品タグ作成') }}
+                        </x-nav-link>
+                    @endif
+                    @if(Auth::check() === false)
+                        <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                            {{ __('ログイン') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                            {{ __('アカウント作成') }}
                         </x-nav-link>
                     @endif
                 </div>
@@ -51,6 +57,17 @@
                         </x-slot>
     
                         <x-slot name="content">
+                            <!--自分の投稿一覧-->
+                            <x-dropdown-link :href="route('mypage_post')">
+                                {{ __('自分の投稿一覧') }}
+                            </x-dropdown-link>
+                            
+                            <!--自分のブックマーク一覧-->
+                            <x-dropdown-link :href="route('mypage_bookmarks')">
+                                {{ __('お気に入り一覧') }}
+                            </x-dropdown-link>
+                            
+                            <!--設定-->
                             <x-dropdown-link :href="route('profile.edit')">
                                 {{ __('設定') }}
                             </x-dropdown-link>
@@ -99,9 +116,40 @@
             <x-responsive-nav-link :href="route('index_work')" :active="request()->routeIs('index_work')">
                 {{ __('作品タグ一覧') }}
             </x-responsive-nav-link>
-            @if(Auth::check() ===true)
-                <x-responsive-nav-link :href="route('mypage')" :active="request()->routeIs('mypage')">
-                    {{ __('マイページ') }}
+            
+            @if(Auth::check() === true)
+            
+                <x-responsive-nav-link :href="route('mypage_post')">
+                    {{ __('自分の投稿一覧') }}
+                </x-responsive-nav-link>
+                
+                <x-responsive-nav-link :href="route('mypage_bookmarks')">
+                    {{ __('お気に入り一覧') }}
+                </x-responsive-nav-link>
+                
+                <x-responsive-nav-link :href="route('profile.edit')">
+                    {{ __('設定') }}
+                </x-responsive-nav-link>
+    
+                <!-- Authentication -->
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+    
+                    <x-responsive-nav-link :href="route('logout')"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                        {{ __('ログアウト') }}
+                    </x-responsive-nav-link>
+                </form>
+                
+            @endif
+            
+            @if(Auth::check() === false)
+                <x-responsive-nav-link :href="route('register')">
+                    {{ __('新規登録') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('login')">
+                    {{ __('ログイン') }}
                 </x-responsive-nav-link>
             @endif
         </div>
@@ -114,25 +162,7 @@
                     <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                     <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
                 </div>
-    
-                <div class="mt-3 space-y-1">
-                    <x-responsive-nav-link :href="route('profile.edit')">
-                        {{ __('設定') }}
-                    </x-responsive-nav-link>
-    
-                    <!-- Authentication -->
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-    
-                        <x-responsive-nav-link :href="route('logout')"
-                                onclick="event.preventDefault();
-                                            this.closest('form').submit();">
-                            {{ __('ログアウト') }}
-                        </x-responsive-nav-link>
-                    </form>
-                </div>
             </div>
         @endif
-        
     </div>
 </nav>

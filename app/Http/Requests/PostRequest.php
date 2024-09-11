@@ -30,8 +30,6 @@ class PostRequest extends FormRequest
             'place.name' => 'required',
             'place.caption' => 'required',
             'place.address' => 'required',
-            'real_image_url' => 'required',
-            'eyecatch_url' => 'required',
         ];
     }
 }

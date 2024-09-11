@@ -41,7 +41,7 @@ Route::controller(ProfileController::class)->middleware('auth')->group(function 
 //PostController
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
    Route::get('/posts/create', 'create_post')->name('create_post');
-   Route::post('posts', 'store_post')->name('store_post');
+   Route::post('/posts', 'store_post')->name('store_post');
    Route::get('/mypage/bookmarks', 'bookmark_posts')->name('mypage_bookmarks');
    Route::get('/mypage', 'mypage')->name('mypage');
    Route::get('/mypage/posts', 'mypage_post')->name('mypage_post');
@@ -81,12 +81,6 @@ Route::controller(BookmarkController::class)->middleware(['auth'])->group(functi
 //UserController
 Route::controller(UserController::class)->group(function(){
     Route::get('/users/{user}', 'user_post')->name('user_post');
-});
-
-//CommentController
-Route::controller(CommentController::class)->middleware(['auth'])->group(function(){
-    Route::post('/posts/{comment}/comments', 'store_comment')->name('store_comment');
-    Route::get('/comments/{comment}', 'delete_comment')->name('delete_comment');
 });
 
 require __DIR__.'/auth.php';

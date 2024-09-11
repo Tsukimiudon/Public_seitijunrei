@@ -110,7 +110,6 @@ class PostController extends Controller
     //投稿の編集を保存
     public function update_post(PostRequest $request, Post $post, Place $place, Image $image)
     {
-        dd($request->method());
         //places,imagesテーブルのデータを取得
         $place = Place::where('post_id', $post->id)->first();
         $image = Image::where('post_id', $post->id)->first();

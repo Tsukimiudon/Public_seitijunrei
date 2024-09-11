@@ -16,7 +16,7 @@ class Post extends Model
     use \Askedio\SoftCascade\Traits\SoftCascadeTrait;
     
     //論理削除で子テーブルも削除
-    protected $softCascade = ['places', ['images'], ['comments'], ['bookmarks']];
+    //protected $softCascade = ['places', ['images'], ['comments'], ['bookmarks']];
     
     //ブログ投稿作成処理用のfillable
     protected $fillable = [
