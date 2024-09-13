@@ -7,7 +7,6 @@
         <h1>{{ $work->name }}の作品タグがついた投稿一覧</h1>
         <p>作品紹介：{{ $work->introduction }}</p>
         
-        <div class="edit_work"><a href="/works/{{ $work->id }}/edit">作品情報の編集はこちら</a></div>
         @if(Auth::check() === true)
             @if(Auth::user()->administrator === 1)
                 <form action="/works/{{ $work->id }}" id="form_{{ $work->id }}" method="post">

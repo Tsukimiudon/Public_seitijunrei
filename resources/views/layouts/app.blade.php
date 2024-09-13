@@ -19,8 +19,10 @@
         
         <!--fontawesome-->
         <script src="https://kit.fontawesome.com/315d53a675.js" crossorigin="anonymous"></script>
-
-                <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+        
+        <!--自作スタイルシート-->
+        <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+        
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -29,7 +31,7 @@
             @include('layouts.navigation')
 
             <!-- Page Content -->
-            <main>
+            <main class="nav-margin-top">
                 {{ $slot }}
             </main>
         </div>
@@ -37,7 +39,7 @@
         <!--フッター-->
         <footer class="footer">
             <div class="container">
-                <p class="text-muted text-center">Copyright © sample All Rights Reserved.</p>
+                <p class="text-center" style="color:#A58592">Copyright © sample All Rights Reserved.</p>
             </div>
         </footer>
     </body>
