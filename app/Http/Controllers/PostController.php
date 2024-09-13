@@ -17,10 +17,16 @@ use Cloudinary;
 
 class PostController extends Controller
 {
+    //route'/'
+    public function welcome_top(Post $post)
+    {
+        return view('posts.top')->with(['posts' => $post->getByLimit()]);
+    }
+    
     //topページ
     public function top(Post $post)
     {
-        return view('posts.top')->with(['posts' => $post->getPaginateByLimit()]);
+        return view('posts.top')->with(['posts' => $post->getByLimit()]);
     }
     
     //投稿一覧ページ

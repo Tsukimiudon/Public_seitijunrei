@@ -22,9 +22,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 //Dashboard
 Route::get('/dashboard', function () {
@@ -52,6 +50,7 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
 
 //PostController(認証なしで見れる)
 Route::controller(PostController::class)->group(function(){
+    Route::get('/', 'welcome_top');
     Route::get('/top', 'top') ->name('top');
     Route::get('/posts/index', 'index_post')->name('index_post');
     Route::get('/posts/{post}', 'show_post')->name('show_post');

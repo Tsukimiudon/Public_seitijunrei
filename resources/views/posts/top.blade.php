@@ -33,30 +33,28 @@
             </ul>
         </div>
         
-        <div class="posts">
-            @foreach($posts as $post)
-                <article class="post">
-                    <!--アイキャッチ-->
-                    <div class="eyecatch">
-                        <figure class="eyecatch_url"><img class="w-1/3" src="{{ $post->eyecatch_url }}" alt="画像が読み込めません。"></figure>
-                    </div>
-                    <!--ブログの中身-->
-                    <div class="content">
-                        <!--タイトル-->
-                        <h2 class="title">
-                            <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
-                        </h2>
-                    </div>
-                    <div class="information">
-                        <small>投稿者：<a href="/users/{{ $post->user->id }}">{{ $post->user->name }}</a></small>
-                        <small>投稿日：{{ $post->created_at }}</small>
-                    </div>
-                </article>
-            @endforeach
-        </div>
         
-        <div class="paginate">
-            {{ $posts->links() }}
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach($posts as $post)
+                    <div class="col mb-4">
+                        <article class="card card-rose">
+                            <div class="card-body">
+                                <!--アイキャッチ-->
+                                <figure class="eyecatch_url"><img class="card-img-top" src="{{ $post->eyecatch_url }}" alt="画像が読み込めません。"></figure>
+                                <br>
+                                <!--タイトル-->
+                                <h2 class="card-title">{{ $post->title }}</h2>
+                                <div class="card-text">
+                                    <small>投稿者：<a href="/users/{{ $post->user->id }}">{{ $post->user->name }}</a></small>
+                                    <small>投稿日：{{ $post->created_at }}</small>
+                                </div>
+                                <a href="/posts/{{ $post->id }}" class="btn btn-rose-outline">詳細</a>
+                            </div>
+                        </article>
+                    </div>
+                @endforeach
+            </div>
         </div>
         
         <script src="{{ asset('/js/style.js') }}"></script>

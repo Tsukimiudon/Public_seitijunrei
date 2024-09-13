@@ -4,34 +4,38 @@
             {{ __('聖地巡礼アプリ') }}
         </h2>
     </x-slot>
-        
-        <!--作品登録機能へのリンク-->
-        <a href="/works/create">作品登録はこちら</a>
-        
-        
-        @foreach($works as $work)
-        
-        <!--タイトル（リンク付き）-->
-        <h1><a href="/works/{{ $work->id }}">{{ $work->name }}</a></h1>
-        
-        <!--作品紹介-->
-        <p>作品紹介：{{ $work->introduction }}</p>
-        
-        <!--管理人のみの削除機能-->
-        @if(Auth::check() === true)
-            @if(Auth::user()->administrator === 1)
-                <form action="/works/{{ $work->id }}" id="form_{{ $work->id }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button type="button" onclick="deleteWork({{ $work->id }})">作品を削除</button> 
-                </form>
-            @endif
-        @endif
-        
-        @endforeach
+        <div class="container mt-2">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            @foreach($works as $work)
+                <div class="col my-3">
+                        <div class="card card-rose">
+                            <div class="card-body">
+                                <!--タイトル（リンク付き）-->
+                                <h1 class="card-title">{{ $work->name }}</h1>
+                                
+                                <!--作品紹介-->
+                                <p class="card-text">作品紹介：{{ $work->introduction }}</p>
+                                <a href="/works/{{ $work->id }}" class="btn btn-rose-outline">詳細</a>
+                                
+                                <!--管理人のみの削除機能-->
+                                @if(Auth::check() === true)
+                                    @if(Auth::user()->administrator === 1)
+                                        <form action="/works/{{ $work->id }}" id="form_{{ $work->id }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="button" class="btn btn-danger" onclick="deleteWork({{ $work->id }})">作品を削除</button> 
+                                        </form>
+                                    @endif
+                                @endif
+                            </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        </div>
         
         <!--ページネーション-->
-        <div class='paginate'>
+        <div class='pagination justify-content-center'>
             {{ $works->links() }}
         </div>
         

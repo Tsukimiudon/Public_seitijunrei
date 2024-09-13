@@ -54,9 +54,9 @@ class Post extends Model
     }
     
     //topページ
-    public function getPaginateByLimit(int $limit_count = 5)
+    public function getByLimit()
     {
-        return $this::with('work', 'user')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this::with('work', 'user')->orderBy('updated_at', 'DESC')->take(6)->get();
     }
     
     //投稿一覧ページ
