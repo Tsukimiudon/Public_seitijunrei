@@ -29,7 +29,7 @@
             @include('layouts.navigation')
 
             <!-- Page Content -->
-            <main class="nav-margin-top">
+            <main>
                 {{ $slot }}
             </main>
         </div>

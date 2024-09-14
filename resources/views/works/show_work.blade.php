@@ -20,39 +20,45 @@
         <!--特定の作品タグ-->
         <div class="container mt-5">
             <div class="row row-cols-1 row-cols-md-2 g-2">
-            @foreach($work->posts as $post)
-                <div class="col mb-6">
+                @foreach($work->posts as $post)
+                    <div class="col mb-6">
                         <article class="card card-rose mt-1">
+                            <!--アイキャッチ-->
                             <img class="card-img-top" src="{{ $post->eyecatch_url }}" alt="画像が読み込めません。">
-                <div class="card-body">
-                    <h2 class="card-title">{{ $post->title }}</h2>
-                    <small>投稿者：<a href="/users/{{ $post->user->id }}">{{ $post->user->name }}</a></small>
-                    <small>投稿日：{{ $post->created_at }}</small>
-                </div>
-                </div>
-                
-                <!--ブックマーク-->
-                <div class="post-control">
-                    @if(Auth::check() === true)
-                    @if (!Auth::user()->is_bookmark($post->id))
-                    <form action="{{ route('store_bookmark', $post) }}" method="POST">
-                        @csrf
-                        <button class="btn btn-rose-outline">ブックマーク<i class="fa-regular fa-star"></i></button>
-                    </form>
-                    @else
-                    <form action="{{ route('delete_bookmark', $post) }}" method="POST">
-                        @csrf
-                        @method('delete')
-                        <button class="btn btn-rose-outline">ブックマーク済<i class="fa-solid fa-star"></i></button>
-                    </form>
-                    @endif
-                    @endif
-                </div>
-                <!--詳細ボタン-->        
-                <a href="/posts/{{ $post->id }}" class="btn btn-rose-outline mr-3">詳細</a>
-            @endforeach
+                            <!--ブログの中身-->
+                            <div class="card-body">
+                                <h2 class="card-title">{{ $post->title }}</h2>
+                                <div class="card-text">
+                                    <small>投稿者：<a href="/users/{{ $post->user->id }}">{{ $post->user->name }}</a></small>
+                                    <small>投稿日：{{ $post->created_at }}</small>
+                                </div>
+                                <div class="row mt-3">
+                                    <!--ブックマーク-->
+                                    <div class="col">
+                                        @if(Auth::check() === true)
+                                        @if (!Auth::user()->is_bookmark($post->id))
+                                        <form action="{{ route('store_bookmark', $post) }}" method="POST">
+                                            @csrf
+                                            <button class="btn btn-rose-outline"><i class="fa-regular fa-star"></i></button>
+                                        </form>
+                                        @else
+                                        <form action="{{ route('delete_bookmark', $post) }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-rose-outline"><i class="fa-solid fa-star"></i></button>
+                                        </form>
+                                        @endif
+                                        @endif
+                                    </div>
+                                    <!--詳細ボタン-->        
+                                    <a href="/posts/{{ $post->id }}" class="btn btn-rose-outline mr-3">詳細</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                @endforeach
+            </div>
         </div>
-        
         
         <!--ページネーション-->
         <div class="paginate">

@@ -30,13 +30,13 @@
                                             @if (!Auth::user()->is_bookmark($post->id))
                                             <form action="{{ route('store_bookmark', $post) }}" method="POST">
                                                 @csrf
-                                                <button class="btn btn-rose-outline">ブックマーク<i class="fa-regular fa-star"></i></button>
+                                                <button class="btn btn-rose-outline"><i class="fa-regular fa-star"></i></button>
                                             </form>
                                             @else
                                             <form action="{{ route('delete_bookmark', $post) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
-                                                <button class="btn btn-rose-outline">ブックマーク済<i class="fa-solid fa-star"></i></button>
+                                                <button class="btn btn-rose-outline"><i class="fa-solid fa-star"></i></button>
                                             </form>
                                             @endif
                                             @endif
