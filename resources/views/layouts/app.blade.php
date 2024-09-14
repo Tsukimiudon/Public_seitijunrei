@@ -42,5 +42,8 @@
                 <p class="text-center" style="color:#A58592">Copyright © sample All Rights Reserved.</p>
             </div>
         </footer>
+        
+        <!--style.js-->
+        <script src="{{ asset('/js/style.js') }}"></script>
     </body>
 </html>

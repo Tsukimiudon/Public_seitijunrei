@@ -18,39 +18,38 @@
         @endif
         
         <!--特定の作品タグ-->
-        <div class="posts">
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-md-2 g-2">
             @foreach($work->posts as $post)
-                <div class="post">
-                <div>
-                    <figure class="eyecatch_url"><img class="w-1/3" src="{{ $post->eyecatch_url }}" alt="画像が読み込めません。"></figure>
-                </div>
-                <div class="content">
-                    <h2 class="title">
-                        <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
-                    </h2>
+                <div class="col mb-6">
+                        <article class="card card-rose mt-1">
+                            <img class="card-img-top" src="{{ $post->eyecatch_url }}" alt="画像が読み込めません。">
+                <div class="card-body">
+                    <h2 class="card-title">{{ $post->title }}</h2>
                     <small>投稿者：<a href="/users/{{ $post->user->id }}">{{ $post->user->name }}</a></small>
                     <small>投稿日：{{ $post->created_at }}</small>
-                    <p class="body">{{ $post->body }}</p>
                 </div>
                 </div>
                 
                 <!--ブックマーク-->
                 <div class="post-control">
-                    @if(Auth::check() ===true)
+                    @if(Auth::check() === true)
                     @if (!Auth::user()->is_bookmark($post->id))
                     <form action="{{ route('store_bookmark', $post) }}" method="POST">
                         @csrf
-                        <button>お気に入り登録</button>
+                        <button class="btn btn-rose-outline">ブックマーク<i class="fa-regular fa-star"></i></button>
                     </form>
                     @else
                     <form action="{{ route('delete_bookmark', $post) }}" method="POST">
                         @csrf
                         @method('delete')
-                        <button>お気に入り解除</button>
+                        <button class="btn btn-rose-outline">ブックマーク済<i class="fa-solid fa-star"></i></button>
                     </form>
                     @endif
                     @endif
                 </div>
+                <!--詳細ボタン-->        
+                <a href="/posts/{{ $post->id }}" class="btn btn-rose-outline mr-3">詳細</a>
             @endforeach
         </div>
         
