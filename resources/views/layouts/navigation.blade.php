@@ -1,62 +1,36 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background:#4f122b" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    
-    <a class="navbar-brand" href="/top">
-        <img src="https://res.cloudinary.com/dqgf3g25t/image/upload/v1726244069/%E7%84%A1%E9%A1%8C27_20240913194924_czseqe.png" alt="logo">
-    </a>
-    
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/posts/index">投稿一覧</a>
-            </li>
-            @if(Auth::check() === true)
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/posts/create">投稿作成</a>
-            </li>
-            @endif
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/works/index">作品タグ一覧</a>
-            </li>
-            @if(Auth::check() === true)
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/works/create">作品タグ作成</a>
-            </li>
-            @endif
-        </ul>
-            
-         <ul class="navbar-nav">
-            @if(Auth::check() === true)
-            <li class="nav-item dropdown dropdown-mypage" style="background:#4f122b" data-bs-theme="dark">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-                    {{ Auth::user()->name }}
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" style="background:#4f122b" data-bs-theme="dark" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/mypage/posts">自分の投稿一覧</a>
-                    <a class="dropdown-item" href="/mypage/bookmarks">お気に入り一覧</a>
-                    <a class="dropdown-item" href="/profile">設定</a>
-                    <div class="dropdown-divider"></div>
-                    <form method="POST" action="{{ route('logout') }}" class="px-4 py-2">
-                        @csrf
-                        <button type="submit" class="dropdown-item">ログアウト</button>
-                    </form>
-                </div>
-            </li>
-            @endif
-            
-            @if(Auth::check() === false)
-            <li class="nav-item">
-                <a class="btn btn-sm btn-outline-light" href="/login">ログイン</a>
-            </li>
-            <li class="nav-item ml-2">
-                <a class="btn btn-sm btn-outline-light" href="/register">アカウント作成</a>
-            </li>
-            @endif
-        </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
   </div>
 </nav>
