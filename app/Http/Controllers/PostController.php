@@ -195,14 +195,6 @@ class PostController extends Controller
         return view('posts.bookmarks', $data);
     }
     
-    //マイページ機能
-    public function mypage()
-    {
-        $user_id = Auth::id();
-        $user = User::find($user_id);
-        return view('posts.mypage')->with(['user' => $user]);
-    }
-    
     //マイページの自分の投稿一覧ページ
     public function mypage_post(Post $post){
         return view('posts.mypage_post')->with(['posts' => $post->getPaginateByLimit_index_post()]);
