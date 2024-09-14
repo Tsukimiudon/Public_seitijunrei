@@ -29,7 +29,7 @@
             @endif
         </ul>
             
-         <ul class="navbar-nav">
+        <ul class="navbar-nav">
             @if(Auth::check() === true)
             <li class="nav-item dropdown dropdown-mypage" style="background:#4f122b" data-bs-theme="dark">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
