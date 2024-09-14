@@ -15,7 +15,7 @@
                                 
                                 <!--作品紹介-->
                                 <p class="card-text">作品紹介：{{ $work->introduction }}</p>
-                                <a href="/works/{{ $work->id }}" class="btn btn-rose-outline">詳細</a>
+                                <a href="/works/{{ $work->id }}" class="btn btn-rose-outline btn-detail">詳細</a>
                                 
                                 <!--管理人のみの削除機能-->
                                 @if(Auth::check() === true)

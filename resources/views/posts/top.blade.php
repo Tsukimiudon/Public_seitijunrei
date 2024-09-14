@@ -41,7 +41,7 @@
                         <article class="card card-rose">
                             <div class="card-body">
                                 <!--アイキャッチ-->
-                                <figure class="eyecatch_url"><img class="card-img-top" src="{{ $post->eyecatch_url }}" alt="画像が読み込めません。"></figure>
+                                <img class="card-img-top" src="{{ $post->eyecatch_url }}" alt="画像が読み込めません。">
                                 <br>
                                 <!--タイトル-->
                                 <h2 class="card-title">{{ $post->title }}</h2>
@@ -49,13 +49,12 @@
                                     <small>投稿者：<a href="/users/{{ $post->user->id }}">{{ $post->user->name }}</a></small>
                                     <small>投稿日：{{ $post->created_at }}</small>
                                 </div>
-                                <a href="/posts/{{ $post->id }}" class="btn btn-rose-outline">詳細</a>
+                                <a href="/posts/{{ $post->id }}" class="btn btn-rose-outline btn-detail">詳細</a>
                             </div>
                         </article>
                     </div>
                 @endforeach
             </div>
         </div>
-        
-        <script src="{{ asset('/js/style.js') }}"></script>
+
 </x-app-layout>

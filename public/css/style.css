@@ -1,12 +1,14 @@
-/**/
+/*カードの枠線*/
 .card-rose{
   border-color: #4f122b;
 }
 
-.card-rose .btn{
+.card-rose .btn-detail{
   float: right;
 }
 
+
+/*枠線のみのボタン*/
 .btn-rose-outline {
     border-color: #4f122b; /* カスタムの枠線色 */
     color: #4f122b; /* ボタンテキストの色（枠線と同じにする場合） */
@@ -15,12 +17,31 @@
 .btn-rose-outline:hover {
     background-color: #4f122b; /* ホバー時の背景色（オプション） */
     color: white; /* ホバー時のテキスト色（オプション） */
-  }
+}
+
+.btn-rose-tag{
+  background-color: #4f122b;
+  color: white;
+}
+
+.btn-rose-tag:hover{
+  background-color: #724155;
+  color: white;
+}
+
+/*ページネーション*/
+.paginate-rose{
+  
+}
 
 /*ナビゲーションバーのドロップダウン*/
 .dropdown-mypage .dropdown-item{
   color:white;
-  hover:#A58592;
+}
+
+.dropdown-mypage .dropdown-item:hover{
+  background-color:white;
+  color:#4f122b;
 }
 
 /*ナビゲーションバー分の空白・app.blade.phpで指定*/
