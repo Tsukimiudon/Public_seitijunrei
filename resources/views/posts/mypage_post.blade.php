@@ -12,34 +12,38 @@
             </div>
         </header>
         
-        <div class="posts">
-            @foreach($posts as $post)
-                @if(Auth::id() === $post->user_id)
-                    <article class="post">
-                        <!--アイキャッチ-->
-                        <div class="eyecatch">
-                            <figure class="eyecatch_url"><img class="w-1/3" src="{{ $post->eyecatch_url }}"></figure>
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-md-2 g-2">
+                @foreach($posts as $post)
+                    @if(Auth::id() === $post->user_id)
+                        <div class="col mb-6">
+                            <article class="card card-rose mt-1">
+                                <!--アイキャッチ-->
+                                <img class="card-img-top" src="{{ $post->eyecatch_url }}">
+                                
+                                <!--ブログの中身-->
+                                <div class="card-body">
+                                    <!--タイトル-->
+                                    <h2 class="card-title">{{ $post->title }}</h2>
+                                    <div class="card-text">
+                                        <small>投稿日：{{ $post->created_at }}</small>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col">
+                                            <!--作品タグ-->
+                                            <a href="/works/{{ $post->work->id }}" class="btn btn-rose-tag ml-3">{{ $post->work->name }}</a>
+                                        </div>
+                                        <!--詳細ボタン-->
+                                        <a href="/posts/{{ $post->id }}" class="btn btn-rose-outline mr-3">詳細</a>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
-                        
-                        <!--ブログの中身-->
-                        <div class="content">
-                            <!--タイトル-->
-                            <h2 class="title">
-                                <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
-                            </h2>
-                        </div>
-                        <div class="information">
-                            <small>投稿者：{{ $post->user->name }}</small>
-                            <small>投稿日：{{ $post->created_at }}</small>
-                        </div>
-                        
-                        <!--作品タグ-->
-                        <a href="/works/{{ $post->work->id }}">{{ $post->work->name }}</a>
-                        
-                    </article>
-                @endif
-            @endforeach
+                    @endif
+                @endforeach
+            </div>
         </div>
+        
         
         <div class="paginate">
             {{ $posts->links() }}

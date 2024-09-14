@@ -29,12 +29,19 @@
   color: white;
 }
 
+
 /*ページネーション*/
 .paginate-rose{
   
 }
 
-/*ナビゲーションバーのドロップダウン*/
+.nav-bar-rose{
+    background: #4f122b;
+    border-bottom: 3px solid #4f122b;
+}
+
+
+/*bootstrap nav-bar*/
 .dropdown-mypage .dropdown-item{
   color:white;
 }
@@ -44,11 +51,10 @@
   color:#4f122b;
 }
 
-/*ナビゲーションバー分の空白・app.blade.phpで指定*/
-.nav-margin-top{
-  margin-top: 58px;
+.dropdown-mypage .dropdown-toggle{
+  color:white;
+  text-decoration: none;
 }
-
 
 /*トップページ
 /* ↓ スライドの外枠 */

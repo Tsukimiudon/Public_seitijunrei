@@ -1,3 +1,13 @@
+//投稿を削除
+function deletePost(id) 
+{
+    'use strict'
+    if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+    document.getElementById(`form_${id}`).submit();
+    }
+}
+
+//スライドショー
 const slide = document.getElementById('slide');
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
