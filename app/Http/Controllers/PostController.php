@@ -30,9 +30,21 @@ class PostController extends Controller
     }
     
     //投稿一覧ページ
-    public function index_post(Post $post)
+    public function index_post(Request $request)
     {
-        return view('posts.index_post')->with(['posts' => $post->getPaginateByLimit_index_post()]);
+        $posts = Post::query();
+        $keyword_value = false;
+        /* キーワードから検索処理 */
+        $keyword = $request->input('keyword');
+        if(!empty($keyword)) {//$keyword　が空ではない場合、検索処理を実行します
+            $posts->where('title', 'LIKE', "%{$keyword}%")
+                    ->orwhere('body', 'LIKE', "%{$keyword}%");
+            $keyword_value = true;
+        }
+        
+        $posts = $posts->orderBy('updated_at', 'DESC')->paginate(10);
+        
+        return view('posts.index_post')->with(['posts' => $posts, 'keyword_value' => $keyword_value, 'keyword' => $keyword])->with('work', 'user');
     }
     
     //投稿詳細ページ

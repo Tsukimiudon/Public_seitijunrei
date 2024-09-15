@@ -5,6 +5,16 @@
         </h2>
     </x-slot>
         
+        @if($keyword_value)
+        <div class="container mt-5">
+            <div class="row">
+                <div class="card card-rose col-12" style="height:200%">
+                <h2>「{{ $keyword }}」の検索結果一覧</h2>
+                </div>
+            </div>
+        </div>
+        @endif
+        
         <div class="container mt-5">
             <div class="row row-cols-1 row-cols-md-2 g-2">
                 @foreach($posts as $post)
@@ -22,11 +32,11 @@
                                     <small>投稿日：{{ $post->created_at }}</small>
                                 </div>
                                 <div class="row mt-3">
-                                    <!--作品タグ-->
+                                        <!--作品タグ-->
                                         <a href="/works/{{ $post->work->id }}" class="btn btn-rose-tag ml-3">{{ $post->work->name }}</a>
                                         <!--ブックマーク-->
                                         <div class="col">
-                                            @if(Auth::check() ===true)
+                                            @if(Auth::check() === true)
                                             @if (!Auth::user()->is_bookmark($post->id))
                                             <form action="{{ route('store_bookmark', $post) }}" method="POST">
                                                 @csrf

@@ -34,15 +34,15 @@
         </div>
         
         
+        
         <div class="container mt-5">
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 @foreach($posts as $post)
                     <div class="col mb-4">
                         <article class="card card-rose">
+                            <!--アイキャッチ-->
+                            <img class="card-img-top" src="{{ $post->eyecatch_url }}" alt="画像が読み込めません。">
                             <div class="card-body">
-                                <!--アイキャッチ-->
-                                <img class="card-img-top" src="{{ $post->eyecatch_url }}" alt="画像が読み込めません。">
-                                <br>
                                 <!--タイトル-->
                                 <h2 class="card-title">{{ $post->title }}</h2>
                                 <div class="card-text">
