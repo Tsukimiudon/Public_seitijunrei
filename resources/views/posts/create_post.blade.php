@@ -30,19 +30,22 @@
             
             <div class="real_image">
                 <h2>聖地の写真をアップロードしてください</h2>
-                <input type="file" name="real_image_url">
+                <input type="file" name="real_image_url" id="real_image_input">
+                <img id="real_image_preview">
                 <p class="input__error" style="color:red">{{ $errors->first('real_image_url') }}</p>
             </div>
             
             <div class="anime_image">
                 <h2>聖地に関連するイラストなどをアップロードしてください</h2>
-                <input type="file" name="anime_image_url">
+                <input type="file" name="anime_image_url" id="anime_image_input">
+                <img id="anime_image_preview">
             </div>
             
             <div class="eyecatch">
                 <h2>アイキャッチ用画像のアップロード</h2>
                 <p>※横長の画像を推奨</p>
-                <input type="file" name="eyecatch_url">
+                <input type="file" name="eyecatch_url" id="eyecatch_input">
+                <img id="eyecatch_preview">
                 <p class="input__error" style="color:red">{{ $errors->first('eyecatch_url') }}</p>
             </div>
             
@@ -57,5 +60,5 @@
             
             <input type="submit" value="保存"/>
         </form>
-
+    
 </x-app-layout>
