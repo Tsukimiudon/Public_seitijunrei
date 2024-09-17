@@ -27,7 +27,7 @@ class Work extends Model
     }
     
     //作品タグ一覧
-    public function getPaginateWorkByLimit(int $limit_count = 20)
+    public function getWorkByLimit(int $limit_count = 20)
     {
         return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }

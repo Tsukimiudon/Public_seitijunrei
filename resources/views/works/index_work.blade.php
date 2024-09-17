@@ -4,48 +4,20 @@
             {{ __('聖地巡礼アプリ') }}
         </h2>
     </x-slot>
+        <h1>作品タグ一覧</h1>
         <div class="container mt-2">
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-            @foreach($works as $work)
-                <div class="col my-3">
-                        <div class="card card-rose">
-                            <div class="card-body">
-                                <!--タイトル（リンク付き）-->
-                                <h1 class="card-title">{{ $work->name }}</h1>
-                                
-                                <!--作品紹介-->
-                                <p class="card-text">作品紹介：{{ $work->introduction }}</p>
-                                <a href="/works/{{ $work->id }}" class="btn btn-rose-outline btn-detail">詳細</a>
-                                
-                                <!--管理人のみの削除機能-->
-                                @if(Auth::check() === true)
-                                    @if(Auth::user()->administrator === 1)
-                                        <form action="/works/{{ $work->id }}" id="form_{{ $work->id }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="button" class="btn btn-danger" onclick="deleteWork({{ $work->id }})">作品を削除</button> 
-                                        </form>
-                                    @endif
-                                @endif
-                            </div>
-                    </div>
+            <div class="card card-rose">
+                <div class="card-body">
+                <div class="row g-4">
+                    @foreach($works as $work)
+                        <!--タイトル（リンク付き）-->
+                        <div class="col">
+                        <a href="/works/{{ $work->id }}" class="btn btn-rose-tag">{{ $work->name }}</a>
+                        </div>
+                    @endforeach
                 </div>
-            @endforeach
-        </div>
-        </div>
-        
-        <!--ページネーション-->
-        <div class='pagination justify-content-center'>
-            {{ $works->links() }}
+                </div>
+            </div>
         </div>
         
-        <!--管理人のみの削除機能-->
-        <script>
-            function deleteWork(id) {
-                'use strict'
-                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
-                document.getElementById(`form_${id}`).submit();
-                }
-            }
-        </script>
 </x-app-layout>

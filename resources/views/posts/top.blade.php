@@ -56,5 +56,6 @@
                 @endforeach
             </div>
         </div>
-
+        <!--js-->
+        <script src="{{ asset('/js/slide.js') }}"></script>
 </x-app-layout>

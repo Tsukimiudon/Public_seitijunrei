@@ -33,7 +33,10 @@ class PostController extends Controller
     public function index_post(Request $request)
     {
         $posts = Post::query();
+        //キーワード検索がされたか否か
         $keyword_value = false;
+        //$postsに入っている投稿の数
+        $post_count = 0;
         /* キーワードから検索処理 */
         $keyword = $request->input('keyword');
         if(!empty($keyword)) {//$keyword　が空ではない場合、検索処理を実行します
@@ -43,8 +46,9 @@ class PostController extends Controller
         }
         
         $posts = $posts->orderBy('updated_at', 'DESC')->paginate(10);
+        $post_count = count($posts);
         
-        return view('posts.index_post')->with(['posts' => $posts, 'keyword_value' => $keyword_value, 'keyword' => $keyword])->with('work', 'user');
+        return view('posts.index_post')->with(['posts' => $posts, 'keyword_value' => $keyword_value, 'keyword' => $keyword, 'post_count' => $post_count])->with('work', 'user');
     }
     
     //投稿詳細ページ

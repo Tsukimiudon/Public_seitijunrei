@@ -5,17 +5,21 @@
         </h2>
     </x-slot>
         
-        @if($keyword_value)
-        <div class="container mt-5">
-            <div class="row">
-                <div class="card card-rose col-12" style="height:200%">
-                <h2>「{{ $keyword }}」の検索結果一覧</h2>
-                </div>
-            </div>
-        </div>
-        @endif
+      
         
         <div class="container mt-5">
+            @if($keyword_value)
+                <div class="row">
+                    <div class="card card-rose">
+                        <h2>「{{ $keyword }}」の検索結果一覧</h2>
+                    </div>
+                </div>
+                @if($post_count == 0)
+                    <p>検索結果に一致する投稿はありません</p>
+                @endif
+            @endif
+            
+            
             <div class="row row-cols-1 row-cols-md-2 g-2">
                 @foreach($posts as $post)
                     <div class="col mb-6">

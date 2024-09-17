@@ -17,7 +17,7 @@
                     <div class="col mb-6">
                         <article class="card card-rose mt-1">
                             <!--アイキャッチ-->
-                            <img class="card-imag-top" src="{{ $post->eyecatch_url }}" alt="画像が読み込めません。">
+                            <img class="card-img-top" src="{{ $post->eyecatch_url }}" alt="画像が読み込めません。">
                             <!--ブログの中身-->
                             <div class="card-body">
                                 <!--タイトル-->

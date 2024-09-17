@@ -25,9 +25,10 @@ class WorkController extends Controller
     
     
     //作品タグ一覧表示ページ
-    public function index_work(Work $work)
+    public function index_work()
     {
-        return view('works.index_work')->with(['works' => $work->getPaginateWorkByLimit()]);
+        $work = Work::orderBy('name', 'asc')->get();
+        return view('works.index_work')->with(['works' => $work]);
     }
     
     //作品別投稿一覧ページ

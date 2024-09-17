@@ -7,17 +7,9 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </x-slot>
     
-    <div class="container-fluid">
-    <div class="card card-rose">
-    
-        <!--アイキャッチ-->
-        <img class="card-img-top" style="height: 50%" src="{{ $post->eyecatch_url }}" alt="画像が読み込めません。">
-        <div class="card-img-overlay">
-            <h1 class="title">
-                {{ $post->title }}
-            </h1>
-        </div>
-        <div class="container">
+        <h1 class="title">
+            {{ $post->title }}
+        </h1>
         @if(Auth::id() === $post->user_id)
             <div class="edit">
                 <a class="btn btn-rose-outline" href="/posts/{{ $post->id }}/edit">投稿の編集はこちら</a>
@@ -41,29 +33,23 @@
         
         
         <!--写真-->
-        <div class="container">
-        <div class="row">
         @foreach($post->places as $place)
-                <h2>{{ $place->name }}</h2>
+                <h3>{{ $place->name }}</h3>
                 <p>{{ $place->caption }}</p>
         @endforeach
-        </div>
         <div class="photo row">
             @foreach($post->images as $image)
-                <img src="{{ $image->real_image_url }}">
+                <img class="col-xs-12 col-sm-6" src="{{ $image->real_image_url }}">
                 @if($image->anime_image_url)
-                <img src="{{ $image->anime_image_url }}" alt="画像が読み込めません。">
+                <img class="col-xs-12 col-sm-6" src="{{ $image->anime_image_url }}" alt="画像が読み込めません。">
                 @endif
             @endforeach
         </div>
-        </div>
+        
         
         <!--Googleマップ-->
-        <div class="container">
-        <div class="row">
-            <div class="col-12">
                 <!--マップの表示部分-->
-                <div id="map" style="height:500px"></div>
+                <div id="map" style="height:500px">
                 <script>
                     function initMap() {
                         map = document.getElementById("map");
@@ -97,34 +83,28 @@
                 </script>
                 <!-- Google Maps APIの読み込み（keyには自分のAPI_KEYを指定）-->
                 <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{ $api_key }}&callback=initMap" async defer></script>
-            </div>
-        </div>
-        </div>
-        
-        <div class="row">
-            <!--作品タグ-->     
+                </div>
+    
+            <!--作品タグ-->
             <a href="/works/{{ $post->work->id }}" class="btn btn-rose-tag">{{ $post->work->name }}</a>
             
             <!--ブックマーク-->
-                <div class="post-control">
-                    @if(Auth::check() ===true)
-                    @if (!Auth::user()->is_bookmark($post->id))
-                    <form action="{{ route('store_bookmark', $post) }}" method="POST">
-                        @csrf
-                        <button class="btn btn-rose-outline">ブックマーク<i class="fa-regular fa-star"></i></button>
-                    </form>
-                    @else
-                    <form action="{{ route('delete_bookmark', $post) }}" method="POST">
-                        @csrf
-                        @method('delete')
-                        <button class="btn btn-rose-outline">ブックマーク済<i class="fa-solid fa-star"></i></button>
-                    </form>
-                    @endif
-                    @endif
+            <div class="post-control">
+                @if(Auth::check() ===true)
+                @if (!Auth::user()->is_bookmark($post->id))
+                <form action="{{ route('store_bookmark', $post) }}" method="POST">
+                    @csrf
+                    <button class="btn btn-rose-outline">ブックマーク<i class="fa-regular fa-star"></i></button>
+                </form>
+                @else
+                <form action="{{ route('delete_bookmark', $post) }}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button class="btn btn-rose-outline">ブックマーク済<i class="fa-solid fa-star"></i></button>
+                </form>
+                @endif
+                @endif
             </div>
         </div>
-        
-        </div>
-        </div>
-        </div>
+
 </x-app-layout>
