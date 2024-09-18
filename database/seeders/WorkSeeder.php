@@ -21,10 +21,31 @@ class WorkSeeder extends Seeder
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
-         //初期データ2
+        //初期データ2
         DB::table('works')->insert([
             'name' => 'ゴールデンカムイ',
             'introduction' => '日露戦争後の北海道・樺太を舞台に、兵士・囚人・アイヌが金塊をめぐって争うバトル漫画',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ3
+        DB::table('works')->insert([
+            'name' => 'aaaa',
+            'introduction' => 'これはサンプルです。',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ4
+        DB::table('works')->insert([
+            'name' => 'bbbb',
+            'introduction' => 'これはサンプルです',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ5
+        DB::table('works')->insert([
+            'name' => 'あいうえお',
+            'introduction' => 'これはサンプルです',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);

@@ -29,13 +29,23 @@
                                         <small>投稿日：{{ $post->created_at }}</small>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col">
-                                            <!--作品タグ-->
-                                            <a href="/works/{{ $post->work->id }}" class="btn btn-rose-tag ml-3">{{ $post->work->name }}</a>
+                                    <div class="col d-flex justify-content-between align-items-center">
+                                        <!--編集ボタン-->
+                                        <div class="edit">
+                                            <a class="btn btn-rose-outline" href="/posts/{{ $post->id }}/edit"><i class="fa-solid fa-pen me-1"></i>編集</a>
                                         </div>
-                                        <!--詳細ボタン-->
-                                        <a href="/posts/{{ $post->id }}" class="btn btn-rose-outline mr-3">詳細</a>
+                                        
+                                        <!--削除ボタン-->
+                                        <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" class="ms-3">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-rose-outline" type="button" onclick="deletePost({{ $post->id }})"><i class="fa-solid fa-trash-can me-1"></i>削除</button> 
+                                        </form>
+                                        
+                                        <!-- 詳細ボタン -->
+                                        <a href="/posts/{{ $post->id }}" class="btn btn-rose-outline ms-auto">詳細</a>
                                     </div>
+                                </div>
                                 </div>
                             </article>
                         </div>

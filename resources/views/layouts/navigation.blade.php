@@ -31,7 +31,7 @@
                 </div>
             </div>
             
-                <div class="flex items-center ml-auto space-x-4">
+                <div class="flex items-center ms-auto space-x-4">
                     <div class="flex items-center order-2">
                         <form action="{{ route('index_post') }}" method="GET">
                             <div class="search-box">
@@ -48,15 +48,15 @@
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 
                 @if(Auth::check() === true)
-                    <div align="right" width="48" class="dropdown dropdown-mypage" style="background:#4f122b color:white">
-                        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                    <div align="right" class="dropdown dropdown-mypage" style="background:#4f122b; color:white;">
+                        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right" style="background:#4f122b" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-end" style="background:#4f122b;" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/mypage/posts">自分の投稿一覧</a>
                             <a class="dropdown-item" href="/mypage/bookmarks">お気に入り一覧</a>
                             <a class="dropdown-item" href="/profile">設定</a>
-                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-divider" style="color:white"></div>
                             <form method="POST" action="{{ route('logout') }}" class="px-4 py-2">
                                 @csrf
                                 <button type="submit" class="dropdown-item">ログアウト</button>
@@ -68,7 +68,7 @@
                     <div>
                         <a class="btn btn-sm btn-outline-light" href="/login">ログイン</a>
                     </div>
-                    <div class="ml-2">
+                    <div class="ms-2">
                         <a class="btn btn-sm btn-outline-light" href="/register">新規登録</a>
                     </div>
                 @endif

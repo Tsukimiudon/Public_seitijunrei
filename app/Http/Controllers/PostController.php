@@ -57,6 +57,7 @@ class PostController extends Controller
         $api_key = config('app.api_key');
         $places = Post::with('places')->get();
         $images = Post::with('places.images')->get();
+        $comments = Post::with('comments.user')->get();
         return view('posts.show_post')->with(['post' => $post])->with(['api_key' => $api_key]);
     }
     

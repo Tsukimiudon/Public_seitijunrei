@@ -82,4 +82,10 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/users/{user}', 'user_post')->name('user_post');
 });
 
+//CommentController
+Route::controller(CommentController::class)->group(function(){
+    Route::post('/posts/{post}/comments', 'store_comment')->name('store_comment');
+    Route::delete('/comments/{comment}', 'delete_comment')->name('delete_comment');
+});
+
 require __DIR__.'/auth.php';
