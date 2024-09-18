@@ -27,27 +27,29 @@
                                     <small>投稿日：{{ $post->created_at }}</small>
                                 </div>
                                 <div class="row mt-3">
-                                    <!--作品タグ-->
-                                    <a href="/works/{{ $post->work->id }}" class="btn btn-rose-tag ml-3">{{ $post->work->name }}</a>
-                                    <!--ブックマーク-->
-                                    <div class="col">
-                                        @if(Auth::check() ===true)
-                                        @if (!Auth::user()->is_bookmark($post->id))
-                                        <form action="{{ route('store_bookmark', $post) }}" method="POST">
-                                            @csrf
-                                            <button class="btn btn-rose-outline"><i class="fa-regular fa-star"></i></button>
-                                        </form>
-                                        @else
-                                        <form action="{{ route('delete_bookmark', $post) }}" method="POST">
-                                            @csrf
-                                            @method('delete')
-                                            <button class="btn btn-rose-outline"><i class="fa-solid fa-star"></i></button>
-                                        </form>
+                                    <div class="col d-flex justify-content-between align-items-center">
+                                        <!-- 作品タグ -->
+                                        <a href="/works/{{ $post->work->id }}" class="btn btn-rose-tag">{{ $post->work->name }}</a>
+                                        
+                                        <!-- ブックマーク -->
+                                        @if(Auth::check() === true)
+                                            @if (!Auth::user()->is_bookmark($post->id))
+                                                <form action="{{ route('store_bookmark', $post) }}" method="POST" class="d-inline ms-3">
+                                                    @csrf
+                                                    <button class="btn btn-rose-outline"><i class="fa-regular fa-star"></i></button>
+                                                </form>
+                                            @else
+                                                <form action="{{ route('delete_bookmark', $post) }}" method="POST" class="d-inline ms-3">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="btn btn-rose-outline"><i class="fa-solid fa-star"></i></button>
+                                                </form>
+                                            @endif
                                         @endif
-                                        @endif
+                                        
+                                        <!-- 詳細ボタン -->
+                                        <a href="/posts/{{ $post->id }}" class="btn btn-rose-outline ms-auto">詳細</a>
                                     </div>
-                                    <!--詳細ボタン-->
-                                    <a href="/posts/{{ $post->id }}" class="btn btn-rose-outline mr-3">詳細</a>
                                 </div>
                             </div>
                         </article>

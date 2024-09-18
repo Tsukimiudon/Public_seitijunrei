@@ -12,12 +12,12 @@
         </h1>
         @if(Auth::id() === $post->user_id)
             <div class="edit">
-                <a class="btn btn-rose-outline" href="/posts/{{ $post->id }}/edit">投稿の編集はこちら</a>
+                <a class="btn btn-rose-outline" href="/posts/{{ $post->id }}/edit"><i class="fa-solid fa-pen me-1"></i>編集</a>
             </div>
             <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-rose-outline" type="button" onclick="deletePost({{ $post->id }})">投稿を削除</button> 
+                <button class="btn btn-rose-outline" type="button" onclick="deletePost({{ $post->id }})"><i class="fa-solid fa-trash-can me-1"></i>削除</button> 
             </form>
         @endif
         <div class="information">
@@ -105,6 +105,31 @@
                 @endif
                 @endif
             </div>
-        </div>
+            
+            @forelse($post->comments as $comment)
+                <p>{{ $comment->user->name }}</p>
+                <p>{{ $comment->body }}</p>
+                @if(Auth::id() === $comment->user->id)
+                <form action="{{ route('delete_comment', $comment->id) }}" id="form_{{ $comment->id }}" method="POST" onsubmit="return confirm('削除すると復元できません。\n本当に削除しますか？');">
+                    @csrf
+                    @method('delete')
+                    <button class="btn btn-rose-outline" type="submit"><i class="fa-solid fa-trash-can me-1"></i>削除</button> 
+                </form>
+                @endif
+            @empty
+                <p>コメントはまだありません</p>
+            @endforelse
+            
+            @auth
+
+        <form class="w-100" id="new_comment" action="{{ route('store_comment', $post->id) }}" accept-charset="UTF-8" method="post">
+            @csrf
+            <input value="{{ $post->id }}" type="hidden" name="post_id" />
+            <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="body" required />
+            <button type="submit" class="btn btn-rose-outline">送信</button>
+        </form>
+    @else
+        <p>ログインするとコメントを投稿することができます。</p>
+    @endauth
 
 </x-app-layout>

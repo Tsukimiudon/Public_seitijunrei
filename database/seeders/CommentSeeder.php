@@ -18,7 +18,6 @@ class CommentSeeder extends Seeder
         DB::table('comments')->insert([
             'user_id' => 2,
             'post_id' => 1,
-            'title' => 'いいですね！',
             'body' => '私も神様の御用人好きなので行ってみたいです',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
