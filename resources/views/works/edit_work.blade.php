@@ -3,7 +3,12 @@
         <meta charset="utf-8">
         <title>作品編集</title>
     </x-slot>
-        <h1>作品情報編集画面</h1>
+        <!--見出し-->
+        <div class="row">
+            <div class="box-rose">
+                <h1 class="fs-1 fw-lighter text-center">作品タグ編集</h1>
+            </div>
+        </div>
          <!--管理人のみの削除機能-->
                                 @if(Auth::check() === true)
                                     @if(Auth::user()->administrator === 1)

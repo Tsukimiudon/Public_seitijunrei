@@ -33,9 +33,12 @@
             </ul>
         </div>
         
-        
-        
-        <div class="container mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="box-rose mt-5">
+                    <h2 class="fs-1 fw-lighter text-center">最新の投稿</h2>
+                </div>
+            </div>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 @foreach($posts as $post)
                     <div class="col mb-4">

@@ -22,7 +22,7 @@ class PostSeeder extends Seeder
             'body' => '伊勢にある月読神社に行ってきました～！',
             'eyecatch_url' => 'https://res.cloudinary.com/dqgf3g25t/image/upload/v1723703507/HORIZON_0001_BURST20211008143411569_COVER_jj8xxm.jpg',
             'created_at' => new DateTime(),
-            'updated_at' => new DateTime(),
+            'updated_at' => null,
             ]);
         //初期データ2
         DB::table('posts')->insert([

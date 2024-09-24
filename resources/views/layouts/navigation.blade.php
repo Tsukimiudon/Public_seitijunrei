@@ -31,18 +31,19 @@
                 </div>
             </div>
             
-                <div class="flex items-center ms-auto space-x-4">
-                    <div class="flex items-center order-2">
-                        <form action="{{ route('index_post') }}" method="GET">
-                            <div class="search-box">
-                                <input type="text" name="keyword" placeholder="検索ワード">
-                                <button type="submit">
-                                    <i class="fas fa-search fa-fw"></i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+            <!--検索ボックス-->
+            <div class="flex items-center ms-auto space-x-4">
+                <div class="flex items-center order-2">
+                    <form action="{{ route('index_post') }}" method="GET">
+                        <div class="search-box">
+                            <input type="text" name="keyword" placeholder="検索ワード">
+                            <button type="submit">
+                                <i class="fas fa-search fa-fw"></i>
+                            </button>
+                        </div>
+                    </form>
                 </div>
+            </div>
             
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">

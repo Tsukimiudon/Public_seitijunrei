@@ -4,7 +4,13 @@
         <title>投稿編集</title>
     </x-slot>
     
-        <h1>投稿編集画面</h1>
+        <!--見出し-->
+        <div class="row">
+            <div class="box-rose">
+                <h1 class="fs-1 fw-lighter text-center">投稿編集</h1>
+            </div>
+        </div>
+            
         <form action="/posts/{{ $post->id }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')

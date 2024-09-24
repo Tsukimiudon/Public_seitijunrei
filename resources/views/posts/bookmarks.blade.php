@@ -4,14 +4,15 @@
             {{ __('お気に入り一覧') }}
         </h2>
     </x-slot>
-        <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    お気に入り一覧
-                </h2>
+        <div class="container">
+            <!--見出し-->
+            <div class="row">
+                <div class="box-rose">
+                    <h1 class="fs-1 fw-lighter text-center">お気に入り一覧</h1>
+                </div>
             </div>
-        </header>
-        <div class="container mt-5">
+            
+            <!--お気に入りの投稿-->
             <div class="row row-cols-1 row-cols-md-2 g-2">
                 @foreach($posts as $post)
                     <div class="col mb-6">

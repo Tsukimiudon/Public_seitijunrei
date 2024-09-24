@@ -4,8 +4,14 @@
             {{ __('聖地巡礼アプリ') }}
         </h2>
     </x-slot>
-        <h1>{{ $work->name }}の作品タグがついた投稿一覧</h1>
-        <p>作品紹介：{{ $work->introduction }}</p>
+        <!--特定の作品タグ-->
+        <div class="container">
+            <div class="row">
+                <div class="box-rose mt-5">
+                    <h1 class="fs-1 fw-lighter text-center">{{ $work->name }}</h1>
+                    <p class="fs-5 fw-lighter text-center">{{ $work->introduction }}</p>
+                </div>
+            </div>
         
         @if(Auth::check() === true)
             @if(Auth::user()->administrator === 1)
@@ -17,14 +23,13 @@
             @endif
         @endif
         
-        <!--特定の作品タグ-->
-        <div class="container mt-5">
             <div class="row row-cols-1 row-cols-md-2 g-2">
                 @foreach($work->posts as $post)
                     <div class="col mb-6">
                         <article class="card card-rose mt-1">
                             <!--アイキャッチ-->
                             <img class="card-img-top" src="{{ $post->eyecatch_url }}" alt="画像が読み込めません。">
+                            
                             <!--ブログの中身-->
                             <div class="card-body">
                                 <h2 class="card-title">{{ $post->title }}</h2>
@@ -32,26 +37,28 @@
                                     <small>投稿者：<a href="/users/{{ $post->user->id }}">{{ $post->user->name }}</a></small>
                                     <small>投稿日：{{ $post->created_at }}</small>
                                 </div>
+                                
                                 <div class="row mt-3">
-                                    <!--ブックマーク-->
-                                    <div class="col">
+                                    <div class="col d-flex justify-content-between align-items-center">
+                                        <!-- ブックマーク -->
                                         @if(Auth::check() === true)
-                                        @if (!Auth::user()->is_bookmark($post->id))
-                                        <form action="{{ route('store_bookmark', $post) }}" method="POST">
-                                            @csrf
-                                            <button class="btn btn-rose-outline"><i class="fa-regular fa-star"></i></button>
-                                        </form>
-                                        @else
-                                        <form action="{{ route('delete_bookmark', $post) }}" method="POST">
-                                            @csrf
-                                            @method('delete')
-                                            <button class="btn btn-rose-outline"><i class="fa-solid fa-star"></i></button>
-                                        </form>
+                                            @if (!Auth::user()->is_bookmark($post->id))
+                                                <form action="{{ route('store_bookmark', $post) }}" method="POST" class="d-inline ms-3">
+                                                    @csrf
+                                                    <button class="btn btn-rose-outline"><i class="fa-regular fa-star"></i></button>
+                                                </form>
+                                            @else
+                                                <form action="{{ route('delete_bookmark', $post) }}" method="POST" class="d-inline ms-3">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="btn btn-rose-outline"><i class="fa-solid fa-star"></i></button>
+                                                </form>
+                                            @endif
                                         @endif
-                                        @endif
+                                        
+                                        <!-- 詳細ボタン -->
+                                        <a href="/posts/{{ $post->id }}" class="btn btn-rose-outline ms-auto">詳細</a>
                                     </div>
-                                    <!--詳細ボタン-->        
-                                    <a href="/posts/{{ $post->id }}" class="btn btn-rose-outline mr-3">詳細</a>
                                 </div>
                             </div>
                         </article>

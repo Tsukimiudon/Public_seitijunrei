@@ -13,6 +13,7 @@ use App\Models\User;
 use Auth;
 use Validator;
 use Cloudinary;
+use Carbon\Carbon;
 
 
 class PostController extends Controller
@@ -55,10 +56,15 @@ class PostController extends Controller
     public function show_post(Post $post)
     {
         $api_key = config('app.api_key');
+        $create_date = Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('Y-m-d');
+        $update_date = null;
+        if(!$post->updated_at == null){
+        $update_date = Carbon::createFromFormat('Y-m-d H:i:s', $post->updated_at)->format('Y-m-d');
+        }
         $places = Post::with('places')->get();
         $images = Post::with('places.images')->get();
         $comments = Post::with('comments.user')->get();
-        return view('posts.show_post')->with(['post' => $post])->with(['api_key' => $api_key]);
+        return view('posts.show_post')->with(['post' => $post, 'api_key' => $api_key, 'create_date' => $create_date, 'update_date' => $update_date]);
     }
     
     //投稿作成ページ
