@@ -29,12 +29,68 @@
   color: white;
 }
 
+.input-rose{
+    width: 100%; /*親要素いっぱい広げる*/
+    padding: 10px 15px; /*ボックスを大きくする*/
+    font-size: 16px;
+    border-radius: 3px; /*ボックス角の丸み*/
+    border: 2px solid #ddd; /*枠線*/
+    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+}
+
+.input-rose:focus {
+    border: 2px solid #4f122b; 
+    z-index: 10;
+    outline: 0;
+}
+
+.box-rose {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border: solid 1px #4f122b;
+}
+.box-rose h1, .box-rose h2, .box-rose p {
+    color:#4f122b;
+    margin: 0;
+    padding: 0;
+}
+
+/*罫線*/
+.hr-rose{
+  color: #4f122b;
+  border: none;
+  border-top: 1px dashed #000;
+  margin: 20px 0;
+}
+
+/*余白*/
+.container-fluid {
+  margin-top: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 90%;
+}
+
+/*投稿の画像配置*/
+.image-container {
+    flex: 1; /* 子要素が均等に広がるように */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* 画像がコンテナからはみ出さないようにする */
+}
+
+.image-container img {
+    max-width: 100%; /* 画像がコンテナを超えないようにする */
+    height: auto; /* 縦横比を維持 */
+}
 
 /*ページネーション*/
 .paginate-rose{
   
 }
 
+/*ナビゲーションバーの背景*/
 .nav-bar-rose{
     background: #4f122b;
     border-bottom: 3px solid #4f122b;
@@ -91,7 +147,9 @@
     transform: scale(1.2);
 }
 
-
+.search-box::placeholder{
+  color: #4f122b;
+}
 
 /*トップページ
 /* ↓ スライドの外枠 */

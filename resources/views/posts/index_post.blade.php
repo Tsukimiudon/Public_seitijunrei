@@ -5,9 +5,15 @@
         </h2>
     </x-slot>
         
-      
-        
-        <div class="container mt-5">
+        <div class="container-fluid">
+            <!--見出し-->
+            <div class="row">
+                <div class="box-rose">
+                    <h1 class="fs-1 fw-lighter text-center">投稿一覧</h1>
+                </div>
+            </div>
+            
+            <!--キーワード検索結果画面-->
             @if($keyword_value)
                 <div class="row">
                     <div class="card card-rose">
