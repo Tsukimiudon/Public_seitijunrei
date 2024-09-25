@@ -6,13 +6,19 @@
 そのため、聖地巡礼に関する情報が集まるブログサイトが必要だと感じました。
 
 ## 使用技術
-PHP
-Laravel 10.48.20<br>
-Bootstrap
-デプロイ：Heroku
+- PHP 8.2.21
+- Laravel 10.48.20
+- HTML
+- CSS
+- JavaScript
+- Bootstrap 5.0.2
+- Google Maps API
+- AWS
+- Breeze
+- Heroku
 
 ## URL・テストユーザー
-URL:seitijunrei-e7caafaf0e25.herokuapp.com
+URL:seitijunrei-e7caafaf0e25.herokuapp.com<br>
 テストユーザー（一般）
 - name:test_general
 - email:test_general@gmail.com
