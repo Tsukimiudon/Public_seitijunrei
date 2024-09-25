@@ -32,8 +32,12 @@
                     </div>
                 </div>
             </div>
-        
-       
+            
+            @if($worksWithPostCount->posts_count == 0)
+                <div class="row">
+                    <p class="fs-4 fw-lighter text-center">投稿はありません</p>
+                </div>
+            @endif
         
             <div class="row row-cols-1 row-cols-md-2 g-2">
                 @foreach($work->posts as $post)

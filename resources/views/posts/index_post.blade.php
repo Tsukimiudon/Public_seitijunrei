@@ -6,23 +6,24 @@
     </x-slot>
         
         <div class="container-fluid">
-            <!--見出し-->
-            <div class="row">
-                <div class="box-rose">
-                    <h1 class="fs-1 fw-lighter text-center">投稿一覧</h1>
-                </div>
-            </div>
             
             <!--キーワード検索結果画面-->
             @if($keyword_value)
                 <div class="row">
-                    <div class="card card-rose">
-                        <h2>「{{ $keyword }}」の検索結果一覧</h2>
+                    <div class="box-rose">
+                        <h2 class="fs-2 fw-lighter text-center">「{{ $keyword }}」の検索結果一覧</h2>
                     </div>
                 </div>
                 @if($post_count == 0)
-                    <p>検索結果に一致する投稿はありません</p>
+                    <p class="fs-4 fw-lighter text-center">検索結果に一致する投稿はありません</p>
                 @endif
+            @else
+                <!--見出し-->
+                <div class="row">
+                    <div class="box-rose">
+                        <h1 class="fs-1 fw-lighter text-center">投稿一覧</h1>
+                    </div>
+                </div>
             @endif
             
             
@@ -73,7 +74,11 @@
             </div>
         </div>
         
-        <div class="paginate paginate-rose">
-            {{ $posts->links() }}
+        <div class="row">
+            <div class="col d-flex justify-content-center mb-3">
+                <div class="pagination-rose">
+                    {{ $posts->links() }}
+                </div>
+            </div>
         </div>
 </x-app-layout>
