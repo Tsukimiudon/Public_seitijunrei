@@ -10,15 +10,16 @@
 
 /*枠線のみのボタン*/
 .btn-rose-outline {
-    border-color: #4f122b; /* カスタムの枠線色 */
-    color: #4f122b; /* ボタンテキストの色（枠線と同じにする場合） */
+    border-color: #4f122b;
+    color: #4f122b;
   }
 
 .btn-rose-outline:hover {
-    background-color: #4f122b; /* ホバー時の背景色（オプション） */
-    color: white; /* ホバー時のテキスト色（オプション） */
+    background-color: #4f122b;
+    color: white;
 }
 
+/*色塗りされたタグボタン*/
 .btn-rose-tag{
   background-color: #4f122b;
   color: white;
@@ -29,30 +30,55 @@
   color: white;
 }
 
-.input-rose{
-    width: 100%; /*親要素いっぱい広げる*/
-    padding: 10px 15px; /*ボックスを大きくする*/
-    font-size: 16px;
-    border-radius: 3px; /*ボックス角の丸み*/
-    border: 2px solid #ddd; /*枠線*/
-    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+/*インプット*/
+.row .input-rose-custom {
+  width: 100%;
+  border: 2px solid #4f122b;
+  border-radius: 8px;
+  padding: 10px;
+  outline: none;
 }
 
-.input-rose:focus {
-    border: 2px solid #4f122b; 
-    z-index: 10;
-    outline: 0;
+.row .input-rose-custom:focus {
+  border-color: #4f122b;
+  box-shadow: 0 0 5px rgba(79, 18, 43, 0.5);
 }
 
+/*セレクトフォーム*/
+.select-rose {
+    border: 2px solid #4f122b;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    background-color: white;
+    color: #333;
+    appearance: none;
+    outline: none;
+}
+
+.select-rose:focus {
+    border-color: #4f122b;
+    box-shadow: 0 0 0 1px rgba(79, 18, 43, 0.5);
+}
+
+/*タイトルなどが入ったボックス*/
 .box-rose {
     padding: 0.5em 1em;
     margin: 2em 0;
     border: solid 1px #4f122b;
 }
+
 .box-rose h1, .box-rose h2, .box-rose p {
     color:#4f122b;
     margin: 0;
     padding: 0;
+}
+
+/*コメントカード*/
+.comment-rose{
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  border: solid 1px #4f122b;
+  border-radius: 8px;
 }
 
 /*罫線*/
@@ -73,16 +99,21 @@
 
 /*投稿の画像配置*/
 .image-container {
-    flex: 1; /* 子要素が均等に広がるように */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* 画像がコンテナからはみ出さないようにする */
+    overflow: hidden;
 }
 
 .image-container img {
-    max-width: 100%; /* 画像がコンテナを超えないようにする */
-    height: auto; /* 縦横比を維持 */
+    max-width: 100%;
+    height: auto;
+}
+
+/*投稿の画像プレビュー*/
+.preview{
+  
 }
 
 /*ページネーション*/
@@ -149,86 +180,4 @@
 
 .search-box::placeholder{
   color: #4f122b;
-}
-
-/*トップページ
-/* ↓ スライドの外枠 */
-.slide-wrapper {
-  width: 100%;
-  height: 300px;
-  position: relative;
-  overflow: hidden; /* はみ出したスライドを隠す */
-}
-/* ↓ 左右のボタン */
-.next {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  right: 10px;
-  bottom: 50%;
-  z-index: 10;
-  cursor: pointer;
-  border-top: solid 3px #000;
-  border-right: solid 3px #000;
-  -webkit-transform: rotate(45deg) translateY(50%);
-  transform: rotate(45deg) translateY(50%);
-}
-.prev {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  left: 25px;
-  bottom: 50%;
-  z-index: 10;
-  cursor: pointer;
-  border-top: solid 3px #000;
-  border-right: solid 3px #000;
-  -webkit-transform: rotate(-135deg) translateY(-50%);
-  transform: rotate(-135deg) translateY(-50%);
-}
-.slide { /*スライド全体 */
-  width: 400%;
-  height: 100%;
-  display: flex;
-  transition: all 0.3s;
-}
-.slide div { /* スライドの中身 */
-  width: 25%;
-  height: 100%;
-  font-size: 16px;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-}
-.slide img{
-
-width: 100%;
-
-height: auto;
-
-}
-.slide1 { /* スライドさせるために必要なクラス */
-  transform: translateX(0);
-}
-.slide2 { /* スライドさせるために必要なクラス */
-  transform: translateX(-25%);
-}
-.slide3 { /* スライドさせるために必要なクラス */
-  transform: translateX(-50%);
-}
-.slide4 { /* スライドさせるために必要なクラス */
-  transform: translateX(-75%);
-}
-.slide div:nth-of-type(1){ /* 背景色 */
-  background-color: #F3F4F6;
-}
-.slide div:nth-of-type(2){ /* 背景色 */
-  background-color: #F3F4F6;
-}
-.slide div:nth-of-type(3){ /* 背景色 */
-  background-color: #F3F4F6;
-}
-.slide div:nth-of-type(4){ /* 背景色 */
-  background-color: #F3F4F6;
 }

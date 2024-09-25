@@ -202,42 +202,52 @@
     <!--コメント欄-->
     <div class="container-fluid">
         <!--コメントを表示する-->
-        @forelse($post->comments as $comment)
-        <div class="row my-3">
+        <div class="row m-3">
             <div class="row mb-3">
-                <h2 class="fs-4">コメント欄</h2>
+                <h2 class="fs-4 fw-lighter">コメント欄</h2>
             </div>
             <div class="row">
-                <div class="box-rose mb-3">
-                        <div class="d-flex justify-content-between align-items-center">
+                @forelse($post->comments as $comment)
+                    <div class="comment-rose m-2">
+                        <div class="d-flex justify-content-start align-items-center">
                             <h4 class="fs-5 mb-0">{{ $comment->user->name }}</h4>
                             @if(Auth::id() === $comment->user->id)
                             <form action="{{ route('delete_comment', $comment->id) }}" id="form_{{ $comment->id }}" method="POST" onsubmit="return confirm('削除すると復元できません。\n本当に削除しますか？');">
                                 @csrf
                                 @method('delete')
-                                <button type="submit"><i class="fa-solid fa-trash-can me-1"></i></button> 
+                                <button type="submit"><i class="fa-solid fa-trash-can ms-1"></i></button> 
                             </form>
                             @endif
                         </div>
                         <p class="mt-2 mb-0 fs-5">{{ $comment->body }}</p>
+                    </div>
+                @empty
+                <div class="col text-center">
+                    <p class="fs-5 fw-lighter">コメントがありません</p>
                 </div>
+                @endforelse
             </div>
         </div>
-        @empty
-        @endforelse
+       
         
         <!--コメントを投稿する-->
         <div class="row m-3">
             @auth
-                <h3 class="fs-4">コメントを投稿する</h3>
+                <h3 class="fs-4 fw-lighter">コメントを投稿する</h3>
                 <form class="input-rose" id="new_comment" action="{{ route('store_comment', $post->id) }}" accept-charset="UTF-8" method="post">
                     @csrf
-                    <input value="{{ $post->id }}" type="hidden" name="post_id" />
-                    <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="body" required />
-                    <button type="submit" class="btn btn-rose-outline">送信</button>
+                    <div class="row m-3">
+                        <input value="{{ $post->id }}" type="hidden" name="post_id" />
+                        <textarea class="input-rose-custom" style="resize: none" placeholder="コメントを入力" autocomplete="off" type="text" name="body" required></textarea>
+                    </div>
+                    <div class="row m-3">
+                        <div class="col d-flex justify-content-end">
+                            <button type="submit" class="btn btn-rose-outline">送信</button>
+                        </div>
+                    </div>
                 </form>
             @else
-                <h3 class="fs-4 text-center">ログインするとコメントを投稿することができます。</h3>
+                <h3 class="fs-4 fw-lighter text-center">ログインするとコメントを投稿することができます。</h3>
             @endauth
         </div>
     </div>

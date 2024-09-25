@@ -10,18 +10,30 @@
                 <div class="box-rose mt-5">
                     <h1 class="fs-1 fw-lighter text-center">{{ $work->name }}</h1>
                     <p class="fs-5 fw-lighter text-center">{{ $work->introduction }}</p>
+                    <div class="row">
+                        <div class="col d-flex justify-content-end">
+                            @if(Auth::check() === true)
+                                <div class="me-2">
+                                    <a class="btn btn-rose-outline" href="/works/{{ $work->id }}/edit">
+                                        <i class="fa-solid fa-pen me-1"></i>編集
+                                    </a>
+                                </div>
+                                @if(Auth::user()->administrator === 1)
+                                    <form action="/works/{{ $work->id }}" id="form_{{ $work->id }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="button" onclick="deleteWork({{ $work->id }})">
+                                            <i class="fa-solid fa-trash-can me-1"></i>削除
+                                        </button> 
+                                    </form>
+                                @endif
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </div>
         
-        @if(Auth::check() === true)
-            @if(Auth::user()->administrator === 1)
-                <form action="/works/{{ $work->id }}" id="form_{{ $work->id }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button type="button" onclick="deleteWork({{ $work->id }})">作品を削除</button> 
-                </form>
-            @endif
-        @endif
+       
         
             <div class="row row-cols-1 row-cols-md-2 g-2">
                 @foreach($work->posts as $post)

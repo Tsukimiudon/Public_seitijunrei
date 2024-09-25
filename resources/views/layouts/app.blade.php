@@ -25,6 +25,7 @@
         
         <!--自作スタイルシート-->
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/slide.css') }}">
         
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
