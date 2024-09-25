@@ -42,3 +42,7 @@ URL:seitijunrei-e7caafaf0e25.herokuapp.com<br>
 
 ## 今後の展望
 - ブックマーク機能などに非同期処理を実装したいと考えています
+
+## ER図
+![聖地巡礼アプリER drawio](https://github.com/user-attachments/assets/26079835-4b66-49a8-9d43-69993f89309a)
+
