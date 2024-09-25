@@ -34,10 +34,10 @@ class WorkRequest extends FormRequest
     public function messages()
     {
         return [
-            'work.name.required' => '作品名を入力してください',
+            'work.name.required' => '作品名の項目は必須です',
             'work.name.max' => '作品名は100字以内で入力してください',
-            'work.introduction.required' => '作品についての説明を入力してください',
-            'work.introduction.max' => '作品についての説明は300字以内で入力してください',
+            'work.introduction.required' => '作品説明の項目は必須です',
+            'work.introduction.max' => '作品説明は300字以内で入力してください',
         ];
 
     }

@@ -11,22 +11,27 @@
                 </div>
             </div>
             
-            <!--作品タグ登録フォーム-->
-            <form action="/works" method="POST">
-                @csrf
-                <div class="title row">
-                    <label for="work_name">作品名</label>
-                    <input id="work_name" class="input-rose" type="text" name="work[name]" placeholder="作品名を入力してください。" value="{{ old('work.name') }}"/>
-                    <p class="title__error" style="color:red">{{ $errors->first('work.name') }}</p>
-                </div>
-                <div class="introduction row">
-                    <label for="work_introduction">作品説明</label>
-                    <textarea id="work_introduction" class="input-rose" name="work[introduction]" placeholder="作品について簡単に説明しよう！">{{ old('work.body') }}</textarea>
-                    <p class="introduction__error" style="color:red">{{ $errors->first('work.introduction') }}</p>
-                </div>
-                <div class="row">
-                    <input type="submit" class="btn btn-rose-outline ms-auto" value="保存"/>
-                </div>
-            </form>
+            <div class="container-fluid">
+                <!--作品タグ登録フォーム-->
+                <form action="/works" method="POST">
+                    @csrf
+                    <div class="row mb-3">
+                        <label for="work_name" class="fs-4 fw-light">作品名</label>
+                        <input id="work_name" class="input-rose-custom" type="text" name="work[name]" value="{{ old('work.name') }}"/>
+                        <p class="title__error" style="color:red">{{ $errors->first('work.name') }}</p>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="work_introduction" class="fs-4 fw-lighter">作品説明</label>
+                        <textarea id="work_introduction" class="input-rose-custom" style="resize: none" rows="5" name="work[introduction]">{{ old('work.body') }}</textarea>
+                        <p class="introduction__error" style="color:red">{{ $errors->first('work.introduction') }}</p>
+                    </div>
+                    <!--保存ボタン-->
+                    <div class="row">
+                        <div class="col d-flex justify-content-end">
+                            <input type="submit" class="btn btn-rose-outline" value="保存"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
 </x-app-layout>
