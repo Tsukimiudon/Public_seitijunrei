@@ -32,5 +32,14 @@ class ImageSeeder extends Seeder
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
+        //初期データ3
+        DB::table('images')->insert([
+            'place_id' => 3,
+            'post_id' => 3,
+            'real_image_url' => 'https://res.cloudinary.com/dqgf3g25t/image/upload/v1724143080/DSC_1381_ewworw.jpg',
+            'anime_image_url' => 'https://res.cloudinary.com/dqgf3g25t/image/upload/v1724143079/goldenKAMUI9_lzwozm.jpg',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
     }
 }

@@ -36,5 +36,16 @@ class PlaceSeeder extends Seeder
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
+        //初期データ3
+        DB::table('places')->insert([
+            'post_id' => 3,
+            'name' => '網走監獄',
+            'caption' => 'ゴールデンカムイ第129話から引用の網走監獄と実際の網走監獄',
+            'address' => '1-1 Yobito, Abashiri, Hokkaido 099-2421',
+            'latitude' => 43.9952453,
+            'longitude' => 144.2271999,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
     }
 }
