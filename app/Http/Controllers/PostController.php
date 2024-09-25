@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use DB;
 use App\Http\Requests\PostRequest;
+use App\Http\Requests\EditpostRequest;
 use App\Models\Work;
 use App\Models\Place;
 use App\Models\Image;
