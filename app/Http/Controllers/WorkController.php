@@ -34,7 +34,8 @@ class WorkController extends Controller
     //作品別投稿一覧ページ
     public function show_work(Work $work)
     {
-        return view('works.show_work')->with(['works' => $work->getByWork()])->with(['work' => $work]);
+        $worksWithPostCount = Work::withCount('posts')->find($work->id);
+        return view('works.show_work')->with(['works' => $work->getByWork(), 'work' => $work, 'worksWithPostCount' => $worksWithPostCount]);
     }
     
     //作品情報を更新する機能

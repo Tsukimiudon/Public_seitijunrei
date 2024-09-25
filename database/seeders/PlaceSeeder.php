@@ -47,5 +47,104 @@ class PlaceSeeder extends Seeder
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
+        //初期データ4
+        DB::table('places')->insert([
+            'post_id' => 4,
+            'name' => '九份',
+            'caption' => '九份の夜景です',
+            'address' => 'Ruifang District New Taipei City, Taiwan 224',
+            'latitude' => 35.3929344,
+            'longitude' => 127.6745817,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ5
+        DB::table('places')->insert([
+            'post_id' => 5,
+            'name' => 'サンプル',
+            'caption' => '地図のキャプションのサンプルです',
+            'address' => 'サンプル',
+            'latitude' => 35.6585848,
+            'longitude' => 139.742858,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ6
+        DB::table('places')->insert([
+            'post_id' => 6,
+            'name' => 'サンプル',
+            'caption' => '地図のキャプションのサンプルです',
+            'address' => 'サンプル',
+            'latitude' => 35.6585848,
+            'longitude' => 139.742858,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ7
+        DB::table('places')->insert([
+            'post_id' => 7,
+            'name' => 'サンプル',
+            'caption' => '地図のキャプションのサンプルです',
+            'address' => 'サンプル',
+            'latitude' => 35.6585848,
+            'longitude' => 139.742858,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ8
+        DB::table('places')->insert([
+            'post_id' => 8,
+            'name' => 'サンプル',
+            'caption' => '地図のキャプションのサンプルです',
+            'address' => 'サンプル',
+            'latitude' => 35.6585848,
+            'longitude' => 139.742858,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ9
+        DB::table('places')->insert([
+            'post_id' => 9,
+            'name' => 'サンプル',
+            'caption' => '地図のキャプションのサンプルです',
+            'address' => 'サンプル',
+            'latitude' => 35.6585848,
+            'longitude' => 139.742858,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ10
+        DB::table('places')->insert([
+            'post_id' => 10,
+            'name' => 'サンプル',
+            'caption' => '地図のキャプションのサンプルです',
+            'address' => 'サンプル',
+            'latitude' => 35.6585848,
+            'longitude' => 139.742858,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ11
+        DB::table('places')->insert([
+            'post_id' => 11,
+            'name' => 'サンプル',
+            'caption' => '地図のキャプションのサンプルです',
+            'address' => 'サンプル',
+            'latitude' => 35.6585848,
+            'longitude' => 139.742858,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ12
+        DB::table('places')->insert([
+            'post_id' => 12,
+            'name' => 'サンプル',
+            'caption' => '地図のキャプションのサンプルです',
+            'address' => 'サンプル',
+            'latitude' => 35.6585848,
+            'longitude' => 139.742858,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
     }
 }

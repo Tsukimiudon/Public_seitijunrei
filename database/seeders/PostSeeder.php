@@ -34,13 +34,103 @@ class PostSeeder extends Seeder
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
-        //初期データ2
+        //初期データ3
         DB::table('posts')->insert([
             'user_id' => 3,
             'work_id' => 2,
             'title' => 'テストユーザーによる投稿',
-            'body' => '漫画・ゴールデンカムイにて、大量の囚人が収監されていた網走監獄。寒い北国の監獄を夏休み中に訪れました。',
+            'body' => 'サンプルです。',
             'eyecatch_url' => 'https://res.cloudinary.com/dqgf3g25t/image/upload/v1724143080/DSC_1381_ewworw.jpg',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ4
+        DB::table('posts')->insert([
+            'user_id' => 4,
+            'work_id' => 3,
+            'title' => '千と千尋の神隠し',
+            'body' => '台湾に行ってきました。千と千尋の神隠しの聖地として有名な九份は夜景がとてもきれいでした',
+            'eyecatch_url' => 'https://res.cloudinary.com/dqgf3g25t/image/upload/v1725725180/PXL_20230907_102610662.MP_wddnsz.jpg',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ5
+        DB::table('posts')->insert([
+            'user_id' => 3,
+            'work_id' => 1,
+            'title' => 'サンプル',
+            'body' => 'サンプルです。',
+            'eyecatch_url' => 'https://res.cloudinary.com/dqgf3g25t/image/upload/v1727261365/eyecatch_sample_wnekri.png',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ6
+        DB::table('posts')->insert([
+            'user_id' => 3,
+            'work_id' => 1,
+            'title' => 'サンプル',
+            'body' => 'サンプルです。',
+            'eyecatch_url' => 'https://res.cloudinary.com/dqgf3g25t/image/upload/v1727261365/eyecatch_sample_wnekri.png',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ7
+        DB::table('posts')->insert([
+            'user_id' => 3,
+            'work_id' => 1,
+            'title' => 'サンプル',
+            'body' => 'サンプルです。',
+            'eyecatch_url' => 'https://res.cloudinary.com/dqgf3g25t/image/upload/v1727261365/eyecatch_sample_wnekri.png',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ8
+        DB::table('posts')->insert([
+            'user_id' => 3,
+            'work_id' => 1,
+            'title' => 'サンプル',
+            'body' => 'サンプルです。',
+            'eyecatch_url' => 'https://res.cloudinary.com/dqgf3g25t/image/upload/v1727261365/eyecatch_sample_wnekri.png',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ9
+        DB::table('posts')->insert([
+            'user_id' => 3,
+            'work_id' => 1,
+            'title' => 'サンプル',
+            'body' => 'サンプルです。',
+            'eyecatch_url' => 'https://res.cloudinary.com/dqgf3g25t/image/upload/v1727261365/eyecatch_sample_wnekri.png',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ10
+        DB::table('posts')->insert([
+            'user_id' => 3,
+            'work_id' => 1,
+            'title' => 'サンプル',
+            'body' => 'サンプルです。',
+            'eyecatch_url' => 'https://res.cloudinary.com/dqgf3g25t/image/upload/v1727261365/eyecatch_sample_wnekri.png',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ11
+        DB::table('posts')->insert([
+            'user_id' => 3,
+            'work_id' => 1,
+            'title' => 'サンプル',
+            'body' => 'サンプルです。',
+            'eyecatch_url' => 'https://res.cloudinary.com/dqgf3g25t/image/upload/v1727261365/eyecatch_sample_wnekri.png',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        //初期データ12
+        DB::table('posts')->insert([
+            'user_id' => 3,
+            'work_id' => 1,
+            'title' => 'サンプル',
+            'body' => 'サンプルです。',
+            'eyecatch_url' => 'https://res.cloudinary.com/dqgf3g25t/image/upload/v1727261365/eyecatch_sample_wnekri.png',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
