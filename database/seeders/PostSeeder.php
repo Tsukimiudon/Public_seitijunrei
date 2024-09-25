@@ -34,5 +34,15 @@ class PostSeeder extends Seeder
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
+        //初期データ2
+        DB::table('posts')->insert([
+            'user_id' => 3,
+            'work_id' => 2,
+            'title' => 'テストユーザーによる投稿',
+            'body' => '漫画・ゴールデンカムイにて、大量の囚人が収監されていた網走監獄。寒い北国の監獄を夏休み中に訪れました。',
+            'eyecatch_url' => 'https://res.cloudinary.com/dqgf3g25t/image/upload/v1724143080/DSC_1381_ewworw.jpg',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
     }
 }
