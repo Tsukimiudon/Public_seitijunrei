@@ -7,7 +7,7 @@
 
 ## 使用技術
 PHP
-Laravel
+Laravel 10.48.20<br>
 Bootstrap
 デプロイ：Heroku
 
