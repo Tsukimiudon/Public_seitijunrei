@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -56,4 +57,10 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
+});
+
+//最初の管理人のみが見れる機能
+Route::controller(UserController::class)->middleware(['auth', 'checkRole'])->group(function(){
+    Route::get('/mypage/admin', 'edit_admin')->name('edit_admin');
+    Route::post('/mypage/admin/store', 'store_admin')->name('store_admin');
 });

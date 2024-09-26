@@ -76,8 +76,14 @@ class User extends Authenticatable
     }
     
     //投稿者別投稿一覧ページ
-    public function getByUser(int $limit_count = 10)
+    public function getPaginateByUser(int $limit_count = 10)
     {
         return $this->posts()->with('user')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
+    
+    //最初の管理人
+    public function isAdmin(): bool
+    {
+        return $this->id === 1;
     }
 }

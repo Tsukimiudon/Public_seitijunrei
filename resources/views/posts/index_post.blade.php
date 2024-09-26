@@ -4,11 +4,9 @@
             {{ __('聖地巡礼アプリ') }}
         </h2>
     </x-slot>
-        
         <div class="container-fluid">
-            
-            <!--キーワード検索結果画面-->
             @if($keyword_value)
+                <!--キーワード検索結果画面-->
                 <div class="row">
                     <div class="box-rose">
                         <h2 class="fs-2 fw-lighter text-center">「{{ $keyword }}」の検索結果一覧</h2>
@@ -26,7 +24,6 @@
                 </div>
             @endif
             
-            
             <div class="row row-cols-1 row-cols-md-2 g-2">
                 @foreach($posts as $post)
                     <div class="col mb-6">
@@ -38,6 +35,7 @@
                             <div class="card-body">
                                 <!--タイトル-->
                                 <h2 class="card-title">{{ $post->title }}</h2>
+                                <!--投稿情報-->
                                 <div class="card-text">
                                     <small>投稿者：<a href="/users/{{ $post->user->id }}">{{ $post->user->name }}</a></small>
                                     <small>投稿日：{{ $post->created_at }}</small>
@@ -72,11 +70,9 @@
                     </div>
                 @endforeach
             </div>
-        </div>
-        
-        <div class="row">
-            <div class="col d-flex justify-content-center mb-3">
-                <div class="pagination-rose">
+            <!--ページネーション-->
+            <div class="row">
+                <div class="col d-flex justify-content-center mb-3">
                     {{ $posts->links() }}
                 </div>
             </div>

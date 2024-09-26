@@ -220,7 +220,11 @@ class PostController extends Controller
     }
     
     //マイページの自分の投稿一覧ページ
-    public function mypage_post(Post $post){
-        return view('posts.mypage_post')->with(['posts' => $post->getPaginateByLimit_index_post()]);
+    public function mypage_post()
+    {
+        $authuser_id = Auth::id();
+        $post = Post::where('user_id', $authuser_id)->orderBy('updated_at', 'DESC')->paginate(10);
+        $post_count = count($post);
+        return view('posts.mypage_post')->with(['posts' => $post, 'post_count' => $post_count]);
     }
 }

@@ -56,6 +56,9 @@
                         <div class="dropdown-menu dropdown-menu-end" style="background:#4f122b;" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/mypage/posts">自分の投稿一覧</a>
                             <a class="dropdown-item" href="/mypage/bookmarks">お気に入り一覧</a>
+                            @if(Auth::id() === 1)
+                                <a class="dropdown-item" href="/mypage/admin">権限付与画面</a>
+                            @endif
                             <a class="dropdown-item" href="/profile">設定</a>
                             <div class="dropdown-divider" style="color:white"></div>
                             <form method="POST" action="{{ route('logout') }}" class="px-4 py-2">
@@ -110,6 +113,12 @@
                 <x-responsive-nav-link :href="route('mypage_bookmarks')" style="text-decoration: none">
                     {{ __('お気に入り一覧') }}
                 </x-responsive-nav-link>
+                
+                @if(Auth::id() === 1)
+                    <x-responsive-nav-link :href="route('edit_admin')" style="text-decoration: none">
+                        {{ __('管理権限付与画面') }}
+                    </x-responsive-nav-link>
+                @endif
                 
                 <x-responsive-nav-link :href="route('profile.edit')" style="text-decoration: none">
                     {{ __('設定') }}

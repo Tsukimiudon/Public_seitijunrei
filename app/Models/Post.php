@@ -60,7 +60,7 @@ class Post extends Model
     }
     
     //投稿一覧ページ
-    public function getPaginateByLimit_index_post(int $limit_count = 10)
+    public function getPaginateByLimit(int $limit_count = 10)
     {
         return $this::with('work', 'user')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
