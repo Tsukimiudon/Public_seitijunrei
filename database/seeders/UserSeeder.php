@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         //初期データ追加
         DB::table('users')->insert([
             'name' => '管理人',
-            'email' => Str::random(10) . '@gmail.com',
+            'email' => 'admin_s@gmail.com',
             'password' => Hash::make('password'),
             'introduction' => 'よろしくお願いします',
             'icon_url' => 'https://res.cloudinary.com/dqgf3g25t/image/upload/v1723685503/cld-sample-5.jpg',

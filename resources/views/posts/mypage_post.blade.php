@@ -12,6 +12,18 @@
                 </div>
             </div>
             
+            <!--自分の投稿がない場合-->
+            @if($post_count == 0)
+                <div class="row">
+                    <p class="fs-4 fw-lighter text-center">投稿はありません</p>
+                </div>
+                <div class="row mt-3">
+                    <div class="col d-flex justify-content-center">
+                        <a href="/posts/create" class="btn btn-rose-outline"><i class="fa-solid fa-pen me-1"></i>投稿を作成しよう</a>
+                    </div>
+                </div>
+            @endif
+            
             <!--自分の投稿-->
             <div class="row row-cols-1 row-cols-md-2 g-2">
                 @foreach($posts as $post)
@@ -52,10 +64,12 @@
                     @endif
                 @endforeach
             </div>
-        </div>
         
-        
-        <div class="paginate">
-            {{ $posts->links() }}
+            <!--ページネーション-->
+            <div class="row">
+                <div class="col d-flex justify-content-center mb-3">
+                    {{ $posts->links() }}
+                </div>
+            </div>
         </div>
 </x-app-layout>

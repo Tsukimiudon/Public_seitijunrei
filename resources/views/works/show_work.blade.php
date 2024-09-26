@@ -84,8 +84,12 @@
         </div>
         
         <!--ページネーション-->
-        <div class="paginate">
-            {{ $works->links() }}
+        <div class="row">
+            <div class="col d-flex justify-content-center mb-3">
+                <div class="pagination-rose">
+                    {{ $works->links() }}
+                </div>
+            </div>
         </div>
         
         <!--管理人のみの削除機能-->

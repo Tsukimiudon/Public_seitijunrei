@@ -60,7 +60,9 @@
         </div>
         
         <!--ページネーション-->
-        <div class="paginate">
-            {{ $users->links() }}
+        <div class="row">
+            <div class="col d-flex justify-content-center mb-3">
+                {{ $users->links() }}
+            </div>
         </div>
 </x-app-layout>
